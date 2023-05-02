@@ -23,7 +23,7 @@ const CREATE_LINK_MUTATION = gql`
     habitat: $habitat
     longitud: $longitud
     nombre: $nombre
-    nomcientififco: $nomcientifico
+    nomcientifico: $nomcientifico
     numalas: $numalas
     orden: $orden
     ) {
