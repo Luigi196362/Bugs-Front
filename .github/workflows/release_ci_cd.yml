@@ -1,11 +1,11 @@
-name: release CI, CD workflow 
+name: master CI, CD workflow 
 on: 
   push:
     branches: [ "release"]
   pull_request:
     branches: [ "release"]
 jobs:
-  release:
+  master:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,13 +15,13 @@ jobs:
           node-version: 16.x
       - name: npm install
         run: npm install
-   #   - name: Test --
-   #     run: |
-   #       npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+#      - name: Test
+ #       run: |
+ #         npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       - name: make .env 
         uses: SpicyPizza/create-envfile@v1.3
         with:
-          envkey_NG_APP_KEY : ${{ secrets.OPENAI_KEY }}
+          envkey_NG_APP_KEY : ${{ secrets.FRONT_KEY }}
           file_name: .env
           fail_on_empty: false
           
@@ -37,7 +37,7 @@ jobs:
         run: |
           docker run -d --name serving_base httpd
           
-      - name: cp angular build to container
+      - name: cp react build to container
         run: |
           docker cp build/.  serving_base:/usr/local/apache2/htdocs
           
@@ -62,9 +62,6 @@ jobs:
 
       - name: update model name in k8 
         run: sed -i 's/{model_name}/${{secrets.MODEL_NAME}}/g' manifests/k8s.yaml
-        
-      - name: update replicas number in k8 
-        run: sed -i 's/{nodo}/${{secrets.NODO_NUMBER}}/g' manifests/k8s.yaml
 
       - name: update _ by - 
         run: sed -i 's/_/-/g' manifests/k8s.yaml
