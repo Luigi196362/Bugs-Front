@@ -75,6 +75,20 @@ const CreateLink = () => {
     });
 
     return (
+        <div style={{ 
+            border: '3px solid gray', 
+            borderRadius: '0px',
+            background: 'white',
+            padding: '10px',
+            margin: '10px 0'
+          }}>
+            <div style={{ 
+              color:'black',
+              fontWeight: 'bold',
+              fontSize: '16px',
+              marginBottom: '5px'
+            }}>
+
         <div>
             <form
                 onSubmit={(e) => {
@@ -83,6 +97,8 @@ const CreateLink = () => {
                 }}
             >
                 <div className="flex flex-column mt3">
+
+                    <label>Nombre: 
                     <input
                         className="mb2"
                         value={formState.nombre}
@@ -95,6 +111,9 @@ const CreateLink = () => {
                         type="text"
                         placeholder="Nombre del Insecto"
                     />
+                    </label>
+
+                    <label>Nombre cientifico:
                     <input
                         className="mb2"
                         value={formState.nomcientifico}
@@ -107,6 +126,9 @@ const CreateLink = () => {
                         type="text"
                         placeholder="Nombre cientifico del Insecto"
                     />
+                    </label>
+
+                    <label>Clase: 
                     <input
                         className="mb2"
                         value={formState.clase}
@@ -119,6 +141,9 @@ const CreateLink = () => {
                         type="text"
                         placeholder="Clase a la que pertenece el Insecto"
                     />
+                    </label>
+
+                    <label>Orden:
                     <input
                         className="mb2"
                         value={formState.orden}
@@ -130,7 +155,9 @@ const CreateLink = () => {
                         }
                         type="text"
                         placeholder="Orden"
-                    />             
+                    />    
+                    </label>
+                    <label>Familia:          
                     <input
                         className="mb2"
                         value={formState.familia}
@@ -142,7 +169,10 @@ const CreateLink = () => {
                         }
                         type="text"
                         placeholder="Familia a la que pertenece el insecto"
-                    />                                          
+                    />             
+                    </label>
+
+                    <label>Habitat:
                     <input
                         className="mb2"
                         value={formState.habitat}
@@ -154,7 +184,10 @@ const CreateLink = () => {
                         }
                         type="text"
                         placeholder="Habitat del Insecto"
-                    />                   
+                    />    
+                    </label>
+
+                    <label>Dieta:               
                     <input
                         className="mb2"
                         value={formState.dieta}
@@ -166,7 +199,10 @@ const CreateLink = () => {
                         }
                         type="text"
                         placeholder="Dieta del insecto"
-                    />                                
+                    />            
+                    </label>
+
+                    <label>Longitud:                    
                     <input
                         className="mb2"
                         value={formState.longitud}
@@ -178,7 +214,10 @@ const CreateLink = () => {
                         }
                         type="text"
                         placeholder="Longitud del Insecto"
-                    />              
+                    />         
+                    </label>
+
+                    <label>Color:     
                     <input
                         className="mb2"
                         value={formState.color}
@@ -191,6 +230,9 @@ const CreateLink = () => {
                         type="text"
                         placeholder="Color del Insecto"
                     />
+                    </label>
+
+                    <label>Numero de alas:
                     <input
                         className="mb2"
                         value={formState.numalas}
@@ -202,11 +244,15 @@ const CreateLink = () => {
                         }
                         type="text"
                         placeholder="Numero de alas del Insecto"
-                    />                                                                                                                      
+                    />       
+                    </label>                                                                                                               
                 </div>
                 <button type="submit">Enviar</button>
             </form>
         </div>
+    </div>
+</div>
+
     );
 };
 
