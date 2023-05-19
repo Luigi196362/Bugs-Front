@@ -15,7 +15,7 @@ import {
 
 // 2
 const httpLink = createHttpLink({
-  uri: 'https://luigi196362-luigi196362.cloud.okteto.net/graphql/'
+  uri: 'http://127.0.0.1:8000/graphql/'
 });
 
 // 3
