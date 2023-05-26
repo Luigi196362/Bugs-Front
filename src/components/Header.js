@@ -25,6 +25,27 @@ const Header = () => {
             Agregar Insecto
           </button>
         </Link>
+
+        <Link
+          to="/text-davinci-003"
+          className="ml1 no-underline black"
+        >
+          <button>
+            Davinci
+          </button>
+        </Link>
+
+        <Link
+          to="/text-create-image"
+          className="ml1 no-underline black"
+        >
+          <button>
+            Imagen
+          </button>
+        </Link>
+
+
+
       </div>
       </div>
   //  </div>

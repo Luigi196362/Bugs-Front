@@ -14,7 +14,6 @@ const CREATE_LINK_MUTATION = gql`
     $nomcientifico: String!
     $numalas: String!
     $orden: String!
-    $descripcion: String!
   ) {
     createInsectos(
     clase: $clase
@@ -27,7 +26,6 @@ const CREATE_LINK_MUTATION = gql`
     nomcientifico: $nomcientifico
     numalas: $numalas
     orden: $orden
-    descripcion: $descripcion
     ) {
         id
         nombre
@@ -40,7 +38,6 @@ const CREATE_LINK_MUTATION = gql`
         longitud 
         color 
         numalas
-        descripcion
     }
   }
 `;
@@ -59,7 +56,6 @@ const CreateLink = () => {
         longitud: "",
         color: "",
         numalas: "",
-        descripcion: "",
     });
 
     const [createLink] = useMutation(CREATE_LINK_MUTATION, {
@@ -74,7 +70,6 @@ const CreateLink = () => {
             longitud: formState.longitud,
             color: formState.color,
             numalas: formState.numalas,
-            descripcion: formState.numalas,
         },
         onCompleted: () => navigate('/')
     });
@@ -251,21 +246,7 @@ const CreateLink = () => {
                         placeholder="Numero de alas del Insecto"
                     /> 
                     </label>
-                       
-                    <label>Descripcion: 
-                    <input
-                        className="mb2"
-                        value={formState.descripcion}
-                        onChange={(e) =>
-                            setFormState({
-                                ...formState,
-                                descripcion: e.target.value
-                            })
-                        }
-                        type="text"
-                        placeholder="Descripcion"
-                    />       
-                    </label>                                                                                                               
+                                                                                                                                 
                 </div>
                 <button type="submit">Enviar</button>
             </form>

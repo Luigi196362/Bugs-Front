@@ -16,7 +16,6 @@ const FEED_QUERY = gql`
         longitud 
         color 
         numalas
-        descripcion
       }
   }
 `

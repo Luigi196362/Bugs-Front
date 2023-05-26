@@ -36,9 +36,6 @@ return (
     <div style={{ marginBottom: '5px' ,color:'black'}}>
       <span style={{ fontWeight: 'bold' }}>Número de alas: </span>{link.numalas}
     </div>
-    <div style={{ marginBottom: '5px' ,color:'black'}}>
-      <span style={{ fontWeight: 'bold' }}>Descripcion: </span>{link.numalas}
-    </div>
   </div>
 );
 
