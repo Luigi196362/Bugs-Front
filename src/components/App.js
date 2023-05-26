@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CreateLink from './CreateLink';
+import Login from './Login';
 import Header from './Header';
 import LinkList from './LinkList';
 import Createimage from './text-create-image';
@@ -28,6 +29,8 @@ class App extends Component {
             path="/text-create-image"
             element={<Createimage/>}
           />
+
+          <Route path="/login" element={<Login/>} />
 
         </Routes>
         
