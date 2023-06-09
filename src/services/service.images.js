@@ -4,7 +4,7 @@ class CreateImages {
 
     async getImage(data) {
         const configuration = new Configuration({
-            apiKey: ""
+            apiKey: "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"
         });
 
         const openai = new OpenAIApi(configuration);
@@ -70,17 +70,13 @@ class CreateImages {
     generatePrompt(animal, number) {
         const capitalizedAnimal =
         animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-        return `Suggest three names for platillos.
+        return `Suggest three names for Bugs.
     
-        Inescto: insecto
-        Names: insecto, bicho, pequeño,volador
-        Inescto: Abeja
-        Names: insecto, amarillo,volador
-        Inescto: Mosca
-        Names: insecto, negro,volador
-        Inescto: escarabajo
-        Names: insecto, negro,terrestre
-        Insecto: ${capitalizedAnimal}
+        Nombre: Volador
+        Informacion: Abeja,Mosquito,Mariposa
+        Nombre: Terrestre
+        Informacion: Hormiga,Escarabajo,Lombriz
+        Anime: ${capitalizedAnimal}
         Names:`;
     }
 }

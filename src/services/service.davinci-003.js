@@ -4,7 +4,7 @@ class ServiceDavinci003 {
 
   async getDaVinci(data) {
     const configuration = new Configuration({
-        apiKey: "your-key-here",
+        apiKey: "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",
       });
     const openai = new OpenAIApi(configuration);
     console.log(configuration);
@@ -84,28 +84,14 @@ class ServiceDavinci003 {
     generatePrompt(animal) {
         const capitalizedAnimal =
         animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-        return `Fill in the characteristics with the information of a real insect using a maximum of 2 words per characteristic.
+        return `Suggest three name of Bugs .
     
-        Nombre: Abeja melífera
-        Nombre científico: Apis mellifera
-        Clase: Insecta
-        Orden: Hymenoptera
-        Familia: Apidae
-        Hábitat: Campos y flores
-        Dieta: Néctar y polen
-        Longitud: 1-2 cm
-        Color: Negro y amarillo
-        Número de alas: Dos alas
+        Nombre: Volador
+        Informacion: Abeja,Mosquito,Mariposa
+        Nombre: Terrestre
+        Informacion: Hormiga,Escarabajo,Lombriz
         Nombre: ${capitalizedAnimal}
-        Nombre científico:
-        Clase:
-        Orden:
-        Familia:
-        Habitat:
-        Dieta:
-        Longitud:
-        Color:
-        Número de alas: `;
+        Informacion: `;
     }
 }
 
