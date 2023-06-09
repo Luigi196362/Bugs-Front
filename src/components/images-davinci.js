@@ -38,7 +38,7 @@ export default function ImageGeneration() {
           <input
             type="text"
             name="animal"
-            placeholder="Enter an anime"
+            placeholder="Enter an Insecto"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
