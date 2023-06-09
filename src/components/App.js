@@ -3,7 +3,7 @@ import CreateLink from './CreateLink';
 import Login from './Login';
 import Header from './Header';
 import LinkList from './LinkList';
-import Createimage from './text-create-image';
+import Createimage from './images-davinci';
 import Textdavinci003 from './text-davinci-003';
 import { Route, Routes } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ class App extends Component {
             element={<Textdavinci003/>}
           />
            <Route
-            path="/text-create-image"
+            path="/images-davinci"
             element={<Createimage/>}
           />
 

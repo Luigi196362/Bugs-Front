@@ -1,22 +1,17 @@
 import { Configuration, OpenAIApi } from "openai";
 
-class CreateImageService {
+class CreateImages {
 
-  async getDaVinci(data) {
-    const configuration = new Configuration({
-        apiKey: "your-key-here",
-      });
-    const openai = new OpenAIApi(configuration);
-    console.log(configuration);
-    console.log(data.animal);
-    if (!configuration.apiKey) {
-        /*
-        res.status(500).json({
-          error: {
-            message: "OpenAI API key not configured, please follow instructions in README.md",
-          }
+    async getImage(data) {
+        const configuration = new Configuration({
+            apiKey: ""
         });
-        */
+
+        const openai = new OpenAIApi(configuration);
+        console.log(configuration);
+        console.log(data.animal);
+    if (!configuration.apiKey) {
+
         return {
             status:500,
             error: {
@@ -26,14 +21,9 @@ class CreateImageService {
       }
     
       const animal = data.animal || '';
+      const number = Math.floor(data.n) || 1;
       if (animal.trim().length === 0) {
-        /*
-        res.status(400).json({
-          error: {
-            message: "Please enter a valid animal",
-          }
-        });
-        */
+
         return {
             status:400,
             error: {
@@ -44,14 +34,16 @@ class CreateImageService {
     
       try {
         const completion = await openai.createImage({
-          model: "text-davinci-003",
           prompt: this.generatePrompt(animal),
-          temperature: 0.6,
+          n: number,
+          size: "512x512",
         });
-        // res.status(200).json({ result: completion.data.choices[0].text });
+        const images =completion.data.data;
+        const urls =images.map((image) => image.url);
+
         return {
             status: 200,
-            result: completion.data.choices[0].text
+            result: urls
         }
       } catch(error) {
         // Consider adjusting the error handling logic for your use case
@@ -63,13 +55,7 @@ class CreateImageService {
           }
         } else {
           console.error(`Error with OpenAI API request: ${error.message}`);
-          /*
-          res.status(500).json({
-            error: {
-              message: 'An error occurred during your request.',
-            }
-          });
-          */
+
          return {
             status: 500,
             error: {
@@ -78,21 +64,25 @@ class CreateImageService {
          }
         }
       }
-    return ;
+    //return ;
   }
 
-    generatePrompt(animal) {
+    generatePrompt(animal, number) {
         const capitalizedAnimal =
         animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-        return `Suggest three names for an animal that is a superhero.
+        return `Suggest three names for platillos.
     
-        Animal: Cat
-        Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-        Animal: Dog
-        Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-        Animal: ${capitalizedAnimal}
+        Inescto: insecto
+        Names: insecto, bicho, pequeño,volador
+        Inescto: Abeja
+        Names: insecto, amarillo,volador
+        Inescto: Mosca
+        Names: insecto, negro,volador
+        Inescto: escarabajo
+        Names: insecto, negro,terrestre
+        Insecto: ${capitalizedAnimal}
         Names:`;
     }
 }
-
-export default new CreateImageService();
+const instance = new CreateImages();
+export default instance;
