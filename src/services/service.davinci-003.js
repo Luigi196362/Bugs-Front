@@ -4,7 +4,7 @@ class ServiceDavinci003 {
 
   async getDaVinci(data) {
     const configuration = new Configuration({
-        apiKey: "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",
+        apiKey: "OPENAI_API_KEY",
       });
     const openai = new OpenAIApi(configuration);
     console.log(configuration);
@@ -78,7 +78,6 @@ class ServiceDavinci003 {
          }
         }
       }
-    //return ;
   }
 
     generatePrompt(animal) {
@@ -95,4 +94,5 @@ class ServiceDavinci003 {
     }
 }
 
-export default new ServiceDavinci003();
+const instance = new ServiceDavinci003();
+export default instance;

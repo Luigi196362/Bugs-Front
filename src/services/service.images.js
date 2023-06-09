@@ -4,7 +4,7 @@ class CreateImages {
 
     async getImage(data) {
         const configuration = new Configuration({
-            apiKey: "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"
+            apiKey: "OPENAI_API_KEY="
         });
 
         const openai = new OpenAIApi(configuration);
