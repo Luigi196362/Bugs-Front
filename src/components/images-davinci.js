@@ -21,7 +21,6 @@ export default function ImageGeneration() {
       setResult(data.result);
       setAnimalInput("");
     } catch(error) {
-      // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
     }
@@ -34,12 +33,12 @@ export default function ImageGeneration() {
 
       <main>
         <img src="" alt=""/>
-        <h3>Name an Insecto</h3>
+        <h3>Name an anime</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Insecto"
+            placeholder="Enter an anime"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
