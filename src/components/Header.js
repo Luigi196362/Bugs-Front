@@ -1,33 +1,71 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AUTH_TOKEN } from '../constants';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const authToken = localStorage.getItem(AUTH_TOKEN);
+
   return (
-    //<div className="flex pa2 justify-between nowrap orange">
     <div className="flex pa3 justify-between nowrap img-background">
-      <div className="flex items-center ">
-             
+      <div className="flex items-center">
+        <Link to="/" className="no-underline black">
+          <div className="fw7 mr1">Hacker News</div>
+        </Link>
+        <Link to="/" className="ml1 no-underline black">
+          new
+        </Link>
+        <div className="ml1">|</div>
+        <Link to="/search" className="ml1 no-underline black">
+          search
+        </Link>
+        {authToken && (
+          <>
+            <div className="ml1">|</div>
+            <Link to="/create" className="ml1 no-underline black">
+              submit
+            </Link>
+          </>
+        )}
+      </div>
+      <div className="flex flex-fixed justify-center">
+        {authToken ? (
+          <div
+            className="ml1 pointer black"
+            onClick={() => {
+              localStorage.removeItem(AUTH_TOKEN);
+              navigate(`/`);
+            }}
+          >
+            logout
+          </div>
+        ) : (
+          <Link to="/login" className="ml1 no-underline black">
+            login
+          </Link>
+        )}
+
+        <div className="ml7">
+          <div className="fw9 f25 mr2 fg no-underline white">Insectos</div>
+        </div>
+
         <button onClick={() => { window.location.href = "/"; }}>
           Lista de Insectos
         </button>
-        <div className="ml7"></div>
-        <div className="mr-auto">
-          
-            <div className="fw9 f25 mr2 fg no-underline white">Insectos</div>
-          
-        </div>
-        <div className="ml7"></div>
-        <Link
-          to="/create"
-          className="ml1 no-underline black"
-        >
-          <button>
-            Agregar Insecto
-          </button>
+
+        <Link to="/create" className="ml1 no-underline black">
+          <button>Agregar Insecto</button>
+        </Link>
+
+        <Link to="/text-davinci-003" className="ml1 no-underline black">
+          <button>Davinci</button>
+        </Link>
+
+        <Link to="/images-davinci" className="ml1 no-underline black">
+          <button>Imagen</button>
         </Link>
       </div>
-      </div>
-  //  </div>
+    </div>
   );
 };
 

@@ -244,8 +244,9 @@ const CreateLink = () => {
                         }
                         type="text"
                         placeholder="Numero de alas del Insecto"
-                    />       
-                    </label>                                                                                                               
+                    /> 
+                    </label>
+                                                                                                                                 
                 </div>
                 <button type="submit">Enviar</button>
             </form>
